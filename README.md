@@ -2,7 +2,7 @@
 
 Proyecto de ejemplo que demuestra un API Gateway usando **Ocelot** para exponer microservicios desarrollados en diferentes tecnologías (Node.js, Go, Python y Java).
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -17,7 +17,7 @@ Proyecto de ejemplo que demuestra un API Gateway usando **Ocelot** para exponer 
     └──────────────┘  └────────────┘  └──────────┘  └──────────┘
 ```
 
-## 📋 Rutas Disponibles
+## Rutas Disponibles
 
 | Endpoint | Método | Servicio | Puerto |
 |----------|--------|----------|--------|
@@ -26,7 +26,7 @@ Proyecto de ejemplo que demuestra un API Gateway usando **Ocelot** para exponer 
 | `/v1/files` | GET | service-python | 8000 |
 | `/v1/sales` | GET | service-java | 8080 |
 
-## 🚀 Cómo ejecutar
+## Cómo ejecutar
 
 ### Requisitos previos
 
@@ -97,7 +97,7 @@ curl http://localhost:4242/v1/sales
 docker exec api-gateway curl http://service-python:8000/files
 ```
 
-## 🛑 Detener los servicios
+## Detener los servicios
 
 ```bash
 docker-compose down
@@ -111,7 +111,7 @@ Para eliminar todo incluidos volúmenes:
 docker-compose down -v
 ```
 
-## 🔍 Solución de problemas
+## Solución de problemas
 
 ### Ver logs de un servicio
 
@@ -144,7 +144,7 @@ Si hiciste cambios en el código:
 docker-compose up -d --build
 ```
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 api-gateway-example/
@@ -162,7 +162,7 @@ api-gateway-example/
 └── README.md
 ```
 
-## ⚙️ Configuración de Ocelot
+## Configuración de Ocelot
 
 La configuración de rutas se encuentra en [gateway/ApiGateway/ocelot.json](gateway/ApiGateway/ocelot.json).
 
@@ -180,13 +180,13 @@ Ejemplo de cómo añadir una nueva ruta:
 }
 ```
 
-## 🔗 Enlaces útiles
+## Enlaces útiles
 
 - [Ocelot Documentation](https://ocelotnetwork.readthedocs.io/)
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 - Servicios individuales en sus respectivas README.md
 
-## 📝 Notas
+## Notas
 
 - Todos los servicios están en una red `demo-network` privada
 - El gateway es el único punto de entrada público (puerto 4242)
