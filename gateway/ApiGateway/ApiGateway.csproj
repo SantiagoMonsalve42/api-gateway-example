@@ -10,7 +10,9 @@
     <None Update="ocelot.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <PackageReference Include="Ocelot" Version="20.0.1" />
+    <PackageReference Include="Ocelot" Version="21.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
   </ItemGroup>
 
 </Project>

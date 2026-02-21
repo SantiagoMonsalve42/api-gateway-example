@@ -60,6 +60,10 @@
       "DownstreamHostAndPorts": [
         { "Host": "service-java", "Port": 8080 }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
