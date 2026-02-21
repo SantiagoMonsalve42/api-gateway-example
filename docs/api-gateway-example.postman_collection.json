@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "8db7ec91-656f-4c21-b31f-14564bf2d5b6",
+    "name": "api-gateway-example",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15246488"
+  },
+  "item": [
+    {
+      "name": "users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4242/v1/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4242",
+          "path": [
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4242/v1/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4242",
+          "path": [
+            "v1",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "files",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4242/v1/files",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4242",
+          "path": [
+            "v1",
+            "files"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4242/v1/sales",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4242",
+          "path": [
+            "v1",
+            "sales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4242/auth/token",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4242",
+          "path": [
+            "auth",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyLWRlbW8iLCJjbGllbnRfaWQiOiJ1c2VyLWRlbW8iLCJuYmYiOjE3NzE2NTQwNzksImV4cCI6MTc3MTY1NDEzOSwiaWF0IjoxNzcxNjU0MDc5fQ.HJy0GxAxK_gUBLlofPiLmT034hiPXqFE2eMExX0orNQ",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
