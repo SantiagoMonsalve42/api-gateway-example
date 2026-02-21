@@ -55,7 +55,7 @@ namespace ApiGateway.Middleware
                 else
                 {
                     state.Reset();
-                    _logger.LogInformation($"✅ HTTP {statusCode} - Circuit breaker reseteo");
+                    _logger.LogInformation($"HTTP {statusCode} - Circuit breaker reseteo");
                 }
 
                 // Copiar respuesta (resetear position primero)
