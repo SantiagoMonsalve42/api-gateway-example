@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/v1/users",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "service-node", "Port": 3000 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/v1/orders",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "service-go", "Port": 8080 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/v1/files",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/files",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "service-python", "Port": 8000 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/v1/sales",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/sales",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "service-java", "Port": 8080 }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:4242"
+  }
+}

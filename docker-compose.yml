@@ -2,35 +2,36 @@ version: "3.9"
 
 services:
 
-  service-node:
-    container_name: service-node
-    build: ./services/service-node
+  gateway:
+    container_name: api-gateway
+    build: ./gateway
     ports:
-      - "8080:3000"
+      - "4242:8080"
+    depends_on:
+      - service-node
+      - service-go
+      - service-python
+      - service-java
+    networks:
+      - demo-network
+
+  service-node:
+    build: ./services/service-node
     networks:
       - demo-network
 
   service-go:
-    container_name: service-go
     build: ./services/service-go
-    ports:
-      - "8081:8080"
     networks:
       - demo-network
 
   service-python:
-    container_name: service-python
     build: ./services/service-python
-    ports:
-      - "8082:8000"
     networks:
       - demo-network
 
   service-java:
-    container_name: service-java
     build: ./services/service-java
-    ports:
-      - "8083:8080"
     networks:
       - demo-network
 

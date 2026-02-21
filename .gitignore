@@ -1,0 +1,58 @@
+sales# .NET
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# NuGet
+packages/
+.nuget/
+
+# Build results
+dist/
+publish/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+
+# Docker
+.dockerignore
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Environment
+.env
+.env.local
