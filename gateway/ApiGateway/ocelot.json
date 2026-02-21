@@ -24,12 +24,18 @@
       "DownstreamHostAndPorts": [
         { "Host": "service-go", "Port": 8080 }
       ],
+      "QosOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 10000,
+        "TimeoutValue": 5000,
+        "UsePolly": true
+      },
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
         "Period": "1m",
         "PeriodTimespan": 60,
-        "Limit": 5
+        "Limit": 60
       }
     },
     {

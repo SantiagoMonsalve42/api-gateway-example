@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
 )
 
 type Order struct {
@@ -16,7 +17,23 @@ type Response struct {
 	Orders  []Order           `json:"orders"`
 }
 
+type ErrorResponse struct {
+	Error string `json:"error"`
+}
+
 func ordersHandler(w http.ResponseWriter, r *http.Request) {
+	// Si el minuto actual es par, retornar error 500
+	currentMinute := time.Now().Minute()
+	if currentMinute%2 == 0 {
+		log.Printf("Minute %d is even, returning 500 error", currentMinute)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(ErrorResponse{
+			Error: "Service temporarily unavailable (testing circuit breaker)",
+		})
+		return
+	}
+
 	orders := []Order{
 		{ID: "ORD-001", Amount: 120.50, Status: "CREATED"},
 		{ID: "ORD-002", Amount: 89.99, Status: "PAID"},

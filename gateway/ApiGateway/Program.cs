@@ -1,10 +1,12 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Polly;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using ApiGateway.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,10 +50,14 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddAuthorization();
-builder.Services.AddOcelot();
+builder.Services.AddOcelot()
+    .AddPolly();
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();
+
+// Middleware de Circuit Breaker ANTES de JWT y Ocelot
+app.UseMiddleware<CircuitBreakerMiddleware>();
 
 // Middleware para validar JWT en rutas protegidas ANTES de Ocelot
 app.Use(async (context, next) =>

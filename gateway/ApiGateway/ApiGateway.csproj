@@ -11,8 +11,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <PackageReference Include="Ocelot" Version="21.0.0" />
+    <PackageReference Include="Ocelot.Provider.Polly" Version="21.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="Polly" Version="8.2.1" />
   </ItemGroup>
 
 </Project>
