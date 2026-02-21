@@ -24,7 +24,6 @@ namespace ApiGateway.Middleware
                 var routeKey = "/orders";
                 var state = _states.GetOrAdd(routeKey, _ => new CircuitBreakerState());
 
-                // Verificar si el circuito está abierto
                 if (state.IsOpen)
                 {
                     _logger.LogWarning($"Circuit breaker ABIERTO - Rechazando petición a {routeKey}");
@@ -32,15 +31,13 @@ namespace ApiGateway.Middleware
                     await context.Response.WriteAsJsonAsync(new { error = "Service temporarily unavailable" });
                     return;
                 }
-
-                // Interceptar la respuesta
+                
                 var originalBodyStream = context.Response.Body;
                 using var memoryStream = new MemoryStream();
                 context.Response.Body = memoryStream;
 
                 await _next(context);
 
-                // Verificar status code
                 var statusCode = context.Response.StatusCode;
                 if (statusCode >= 500)
                 {
@@ -58,7 +55,6 @@ namespace ApiGateway.Middleware
                     _logger.LogInformation($"HTTP {statusCode} - Circuit breaker reseteo");
                 }
 
-                // Copiar respuesta (resetear position primero)
                 memoryStream.Position = 0;
                 await memoryStream.CopyToAsync(originalBodyStream);
                 context.Response.Body = originalBodyStream;
