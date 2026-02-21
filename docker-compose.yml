@@ -11,6 +11,7 @@ services:
       - service-node
       - service-go
       - service-python
+      - service-python-2
       - service-java
     networks:
       - demo-network
@@ -27,6 +28,15 @@ services:
 
   service-python:
     build: ./services/service-python
+    environment:
+      - INSTANCE_NAME=Instance-1
+    networks:
+      - demo-network
+
+  service-python-2:
+    build: ./services/service-python-2
+    environment:
+      - INSTANCE_NAME=Instance-2
     networks:
       - demo-network
 

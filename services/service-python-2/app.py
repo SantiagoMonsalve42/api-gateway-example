@@ -4,7 +4,7 @@ import os
 app = FastAPI()
 
 # Identificador de instancia
-INSTANCE_NAME = os.getenv("INSTANCE_NAME", "Instance-1")
+INSTANCE_NAME = os.getenv("INSTANCE_NAME", "Instance-2")
 
 @app.get("/files")
 def get_files(request: Request):
