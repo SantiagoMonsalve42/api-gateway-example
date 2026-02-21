@@ -7,7 +7,14 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "service-node", "Port": 3000 }
-      ]
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5
+      }
     },
     {
       "UpstreamPathTemplate": "/v1/orders",
@@ -16,7 +23,14 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "service-go", "Port": 8080 }
-      ]
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5
+      }
     },
     {
       "UpstreamPathTemplate": "/v1/files",
@@ -25,7 +39,14 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "service-python", "Port": 8000 }
-      ]
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5
+      }
     },
     {
       "UpstreamPathTemplate": "/v1/sales",
@@ -34,10 +55,22 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "service-java", "Port": 8080 }
-      ]
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5
+      }
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:4242"
+    "BaseUrl": "http://localhost:4242",
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Límite de peticiones excedido. Máximo 5 peticiones por minuto.",
+      "RateLimitCounterPrefix": "ocelot-ratelimit-"
+    }
   }
 }
